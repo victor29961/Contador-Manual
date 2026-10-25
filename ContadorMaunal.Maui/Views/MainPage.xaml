@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContadorMaunal.Maui.Views.MainPage"
-             Title="MainPage">
+             Title="Contador Manual">
 
     <StackLayout
         Orientation="Vertical"
         Spacing="12"
         Margin="12,24,36,48"
-        Padding="12,0,0,36">
+        Padding="12">
 
         <Label
             Text="Conteo"
@@ -16,17 +16,34 @@
             VerticalOptions="Fill"
             FontSize="Medium"/>
         <Border
+            Stroke="Gray"
             StrokeThickness="2">
             <Label
-                Text="0"
+                Text="{Binding Path=Conteo}"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Padding="0,24"
                 FontSize="Large"
                 FontAttributes="Bold"
-                x:Name="ConteoLabel"/>
+               />
 
         </Border>
+        <HorizontalStackLayout
+            Spacing="4">
+            <Label
+                Text="incrementar conteo por: "
+                VerticalOptions="Center"/>
+            <Entry
+                Text="{Binding Source={x:Reference incrementoStepper}, Path=value}"
+                IsReadOnly="True"/>
+            <Stepper
+                Minimum="1"
+                Maximum="20"
+                Increment="1"
+                Value="{Binding Path=Incremento}"
+               />
+        </HorizontalStackLayout>
+        
         <StackLayout
             Orientation="Horizontal"
             HorizontalOptions="Center"
@@ -35,11 +52,11 @@
             <Button
                 Text="Contar"
                 FontSize="Medium"
-                Clicked="OnContarButton_Clicked"/>
+                Clicked="OnContarButtonClicked"/>
             <Button
                 Text="Reiniciar"
                 FontSize="Medium"
-                Clicked="OnReiniciarButton_Clicked"/>
+                Clicked="OnReiniciarButtonClicked"/>
 
         </StackLayout>
 
