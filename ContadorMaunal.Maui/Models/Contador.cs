@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ContadorMaunal.Maui.Models
 {
-     class Contador : INotifyPropertyChanged
-     {
+    class Contador : INotifyPropertyChanged
+    {
         private int _conteo;
         private int _incremento;
 
@@ -30,7 +30,7 @@ namespace ContadorMaunal.Maui.Models
             get => _incremento;
             set
             {
-                if (_incremento != value)
+                if(_incremento != value)
                 {
                     _incremento = value;
                     OnPropertyChanged(nameof(Incremento));
@@ -38,7 +38,7 @@ namespace ContadorMaunal.Maui.Models
             }
         }
 
-        public Contador()
+        public  Contador()
         {
             Conteo = 0;
             Incremento = 1;
@@ -54,11 +54,13 @@ namespace ContadorMaunal.Maui.Models
             Conteo = 0;
         }
 
+
         private void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+            if (PropertyChanged != null) 
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, 
+                    new PropertyChangedEventArgs(propertyName));
             }
         }
     }

@@ -19,10 +19,11 @@
             Stroke="Gray"
             StrokeThickness="2">
             <Label
-                Text="{Binding Path=Conteo}"
+                Text="{Binding Path = Conteo}"
+                Padding="0,24"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Padding="0,24"
+                
                 FontSize="Large"
                 FontAttributes="Bold"
                />
@@ -34,14 +35,14 @@
                 Text="incrementar conteo por: "
                 VerticalOptions="Center"/>
             <Entry
-                Text="{Binding Source={x:Reference incrementoStepper}, Path=value}"
+                Text="{Binding Source={x:Reference IncrementoStepper}, Path = Value}"
                 IsReadOnly="True"/>
             <Stepper
                 Minimum="1"
                 Maximum="20"
                 Increment="1"
                 Value="{Binding Path=Incremento}"
-               />
+                x:Name="IncrementoStepper"/>
         </HorizontalStackLayout>
         
         <StackLayout
